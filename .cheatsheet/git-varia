@@ -1,0 +1,29 @@
+
+# Config
+gcl	git config --list
+
+# Branch
+gb	git branch 			# local
+gba	git branch -a			# Toute
+gbr	git branch --remote		# Uniquement remote
+
+# Diff
+gd	git diff
+gdca	git diff --cached
+gdt	git diff-tree --no-commit-id --name-only -r
+gdt	git difftool
+
+# Log
+glg	git log --stat --max-count = 10
+glgg	git log --graph --max-count = 10
+glgga	git log --graph --decorate --all
+glo	git log --oneline --decorate --color
+glog	git log --oneline --decorate --color --graph
+gcount	git shortlog -sn	-n	sort output according to the number of commits per author
+				-s	Suppress commit descriptions, only provides commit count
+				-e	Show the email address of each author
+
+# Ignore
+gignore		git update-index --assume-unchanged
+gunignore	git update-index --no-assume-unchanged
+

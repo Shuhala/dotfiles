@@ -1,0 +1,42 @@
+'Shougo/neosnippet.vim'
+'Shougo/neosnippet-snippets'
+'tpope/vim-fugitive'		" :GEdit, :Gsplit, :Gvsplit, :Gtabedit, :Gstatus, :Gcommit, :Gblame
+'flazz/vim-colorschemes'
+'airblade/vim-gitgutter'	" It shows whether each line has been added, modified, and where lines have been removed.
+
+
+#######################################################################################
+## Emmet 
+#######################################################################################
+
+	 1. Expand abbreviation            emmet-expand-abbr              <C-y>,
+	 2. Wrap with abbreviation         emmet-wrap-with-abbreviation   v_<C-y>,
+	 3. Balance tag inward             emmet-balance-tag-inward       <C-y>d
+	 4. Balance tag outward            emmet-balance-tag-outward      <C-y>D
+	 5. Go to next edit point          emmet-goto-next-point          <C-y>n
+	 6. Go to previous edit point      emmet-goto-previous-point      <C-y>N
+	 7. Add and update <img> size      emmet-update-image-size        <C-y>i
+	 8. Merge lines                    emmet-merge-lines              <C-y>m
+	 9. Remove tag                     emmet-remove-tag               <C-y>k
+	10. Split/join tag                 emmet-split-join-tag           <C-y>j
+	11. Toggle comment                 emmet-toggle-comment           <C-y>/
+	12. Make anchor from URL           emmet-make-anchor-url          <C-y>a
+	13. Make quoted text from URL      emmet-quoted-text-url          <C-y>A
+	14. Code pretty                    emmet-code-pretty              <C-y>c
+	15. Lorem ipsum                    emmet-lorem-ipsum
+
+	span.class1				->	<span class="class1"></span>
+	span.class1.class2   			->	<span class="class1 class2"></span>
+	div#wrapper          			->	<div id="wrapper"></div>
+	div#wrapper.content  			->	<div id="wrapper" class="content"></div>
+	td[title="Hello world!" colspan=3]	->	<td title="Hello world!" colspan="3"></td>
+	ul>li.item_$*5 				->	<ul>
+							    <li class="item_1"></li>
+							    <li class="item_2"></li>
+							    <...>
+	ul>li.item_$@-*5 			->	<ul>
+							    <li class="item_5"></li>
+							    <li class="item_4"></li>
+							    <...>
+							
+

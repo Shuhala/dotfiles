@@ -1,0 +1,27 @@
+## Search
+
+apt-cache pkgnames		# list
+apt-cache pkgnames $NAME 	# starting with x name
+apt-cache search $NAME		# search name and description
+
+
+## Package specific
+
+apt-cache show $NAME		# package information
+apt-cache showpkg $NAME		# check dependencies
+apt-get changelog $NAME		# see change-log
+
+
+## General
+apt-cache stats				# statistics
+apt-get --download-only source $NAME 	#dl only source code
+apt-get source $NAME			# download and unpack source code
+
+apt-get check 			# find broken dependencies
+apt-get clean			# free disk space by cleaning *.deb local files
+apt-get autoclean		# deletes *.deb under /var/cache/apt/archives
+apt-get autoremove $NAME	# remove unused dependencies
+
+apt-get remove $NAME		# uninstall
+apt-get purge $NAME		# remove everything, including conf files
+apt-get remove --purge $NAME	

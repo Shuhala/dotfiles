@@ -1,0 +1,37 @@
+
+# Add
+ga	git add NAME
+gaa	git add --all
+
+# Commit
+gc	git commit -v
+gcmsg	git commit -m MESSAGE
+gca	git commit -v -a		# Commit all files
+gca!	git commit -v -a --amend	# Amend all files
+
+# Pull
+ggl	git pull origin $(current_branch)
+ggpur	git pull --rebase origin $(current_branch)
+glum	git pull upstream master
+
+# Push
+ggp	git push origin $(current_branch)
+
+# Merge
+gm	git merge
+
+# Status
+gst	git status
+
+# Checkout
+gcm	git checkout master
+gco	git checkout NAME
+
+# Stash
+gsta	git stash save
+gstaa	git stash apply
+gstd	git stash drop
+gstl	git stash list
+gstp	git stash pop
+gsts	git stash show --text
+

@@ -1,26 +1,12 @@
-export ZSH=/home/shuhala/.oh-my-zsh # Path to your oh-my-zsh installation.
-export DOTFILES=/home/shuhala/.dotfiles
-export CONFIG=$DOTFILES/zsh
+export ZSH=/home/$USER/.oh-my-zsh 			# Path to your oh-my-zsh installation.
+export CONFIG=/home/$USER/.config/$USER
 
-# Theme
-ZSH_THEME="shuhala"
-DEFAULT_USER=shuhala # Hide user from command prompt
+ZSH_THEME="agnoster"
+DEFAULT_USER=$USER 							# Hide user from command prompt
 
-# Plugins can be found in ~/.oh-my-zsh/plugins/*
-plugins=(git debian nyan command-not-found tmux tmuxinator)
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
+source $CONFIG/alias.zsh
+source $CONFIG/zsh/settings.zsh
 
-# Global config
-source $DOTFILES/alias.zsh
-source $CONFIG/settings.zsh
-
-# Alias
-source $DOTFILES/alias.zsh
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-  else
-    export EDITOR='mvim'
-fi
-
+export EDITOR='vim'

@@ -14,16 +14,13 @@ call neobundle#begin(expand('/home/shuhala/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "
 "  " Add or remove your Bundles here:
-"  NeoBundle 'Shougo/neosnippet.vim'
-"  NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-"  NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'airblade/vim-gitgutter'
-" NeoBundle 'nathanaelkane/vim-indent-guides'
-" NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'dylanaraps/wal.vim'
+
 "
 "  " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -41,7 +38,7 @@ NeoBundleCheck
 "
 
 syntax on
-colorscheme Monokai
+colorscheme wal
 
 set number
 set encoding=utf8

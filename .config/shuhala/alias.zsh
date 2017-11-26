@@ -22,8 +22,10 @@ alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 
 # Docker
-alias docker='sudo docker'
-alias docker-clean='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+alias docker-clean='sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+alias docker-purge='docker-purge_images && docker-purge_volumes'
+alias docker-purge_images='sudo docker rmi $(docker images -f dangling=true -q)'
+alias docker-purge_volumes='sudo docker volume rm $(docker volume ls -f dangling=true -q)'
 
 # System
 alias reboot='sudo /sbin/reboot'
@@ -39,4 +41,5 @@ alias cs-tmux='less ~/.cheatsheets/tmux'
 # Varia
 alias KILLDERBY='rm -f ~/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.ja*'
 alias nspire='wine start "C:\Program Files (x86)\TI Education\TI-Nspire CX CAS Student Software\TI-Nspire CX CAS Student Software.exe"'
+alias purge-wine='sudo pacman -Rns wine wine-mono wine_gecko && rm -r "$HOME/.wine" && rm  $HOME/.config/menus/applications-merged/wine* && rm -r "$HOME/.local/share/applications/wine" && rm $HOME/.local/share/desktop-directories/wine*'
 

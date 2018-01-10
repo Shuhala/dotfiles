@@ -1,43 +1,34 @@
 ###########################
-## General settings      ##
+# Autostarts
 ###########################
-# (No) Title Bars
-# for_window [class="^.*"] border pixel 0
-# Windows button
-set $mod Mod4
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-# Start a terminal
-bindsym $mod+Return exec konsole
+exec_always compton -fG
+# exec --no-startup-id ~/.config/compton.conf
+exec --no-startup-id xrdb ~/.Xresources
+# increase cursor rate
+exec --no-startup-id xset r rate 200 100
+# pywal colorscheme persist on reboot
+exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
+# start polkit (for pamac)
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+# launch polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Switch locale
+exec --no-startup-id "setxkbmap -layout us,ca -option grp:alt_shift_toggle"
 
+
+###########################
+# General settings     
+###########################
 # Gaps
 gaps inner 10
 gaps outer 0
 smart_gaps on
 
-# Colors
-set $black       #212121
-set $darkblack   #000000
-set $red         #fb4934
-set $darkred     #cc241d
-set $green       #b8bb26
-set $darkgreen   #98971a
-set $yellow      #fabd2f
-set $darkyellow  #d79921
-set $blue        #83a598
-set $darkblue    #458588
-set $magenta     #d3869b
-set $darkmagenta #b16286
-set $cyan        #8ec07c
-set $darkcyan    #689d6a
-set $white       #ebdbb2
-set $darkwhite   #a89984
-set $background  #000000
-set $transparent #00000000
+for_window [class="URxvt"] border pixel 0
 
 
 ###########################
-## Pywal                 ##
+## Pywal
 ###########################
 # Set colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -49,15 +40,25 @@ client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
 client.placeholder      $bg     $bg     $fg  $bg       $bg
-
 client.background       $bg
-
-# PROTIP: You can also dynamically set dmenu's colors this way:
-bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
 
 
 ###########################
-## Screenshots           ##
+# i3block
+###########################
+bar
+{
+	status_command i3blocks
+	position top
+	font pango:DejaVu Sans Mono, Awesome 8
+	colors {
+    	statusline         $white
+	}
+}
+
+
+###########################
+## Screenshots
 ###########################
 # scrot
 bindsym --release Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -m -e 'xclip -selection c -t image/png < $f'"
@@ -66,7 +67,7 @@ bindsym --release $mod+Shift+Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d
 
 
 ###########################
-## Focus                 ##
+## Focus
 ###########################
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -88,18 +89,19 @@ bindsym $mod+Alt+Right focus output right
 
 
 ###########################
-## Window mode           ##
+## Window mode
 ###########################
 # split in horizontal orientation
 bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+w fullscreen toggle
-# change container layout (stacked, tabbed, toggle split)
+# mode stacked
 bindsym $mod+s layout stacking
+# mode tabbed
 bindsym $mod+t layout tabbed
+# mode toggle split
 bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -133,7 +135,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 ###########################
-## Resize                 ##
+## Resize 
 ###########################
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -150,33 +152,47 @@ bindsym $mod+r mode "resize"
 
 
 ###########################
-## I3                    ##
+# Keybindings
 ###########################
+# Windows button
+set $mod Mod4
+# Terminal
+bindsym $mod+Return exec urxvt
+# rofi mode run
+bindsym $mod+d exec rofi -show run
+# rofi mode window
+bindsym $mod+Tab exec rofi -show window
+# i3lock
+bindsym $mod+l exec "killall compton && sh $HOME/.config/betteri3lock.sh -l blur && compton -fG"
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# Starting things with i3
-for_window [class="yakuake"] floating enable;
-## Plasma Integration
-# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
+# Enable monitor
+bindsym $mod+m exec xrandr --output DP2 --auto --left-of eDP1
+# Disable monitor
+bindsym $mod+Shift+m exec xrandr --output DP2 --off
 
-## Avoid tiling popups, dropdown windows from plasma
-# for the first time, manually resize them, i3 will remember the setting for floating windows
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="plasmadesktop"] floating enable; border none
 
-# Krunner shortcut
-bindsym $mod+space exec krunner
+###########################
+## Audio
+###########################
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 

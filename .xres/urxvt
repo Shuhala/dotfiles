@@ -1,0 +1,7 @@
+URxvt.scrollBar: 		false
+URxvt.cursorBlink: 		true
+URxvt.cursorUnderline: 	true
+URxvt.internalBorder: 	20
+URxvt.transparent:   	true
+urxvt.font:				xft: Overpass Mono:pixelsize=13
+

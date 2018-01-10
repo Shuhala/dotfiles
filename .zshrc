@@ -1,7 +1,7 @@
 export ZSH=/home/$USER/.oh-my-zsh 			# Path to your oh-my-zsh installation.
 export CONFIG=/home/$USER/.config/$USER
 
-ZSH_THEME="agnoster"
+ZSH_THEME="clean"
 DEFAULT_USER=$USER 							# Hide user from command prompt
 
 plugins=(git)

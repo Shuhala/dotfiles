@@ -1,0 +1,13 @@
+rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
+
+! State:           'bg',      'fg',    'bgalt',   'hlbg',   'hlfg'
+rofi.color-normal: #402f343f, #f3f4f5, #402f343f, #9575cd,  #f3f4f5
+rofi.color-urgent: #402f343f, #f3f4f5, #402f343f, #9575cd,  #f3f4f5
+rofi.color-active: #402f343f, #f3f4f5, #402f343f, #9575cd,  #f3f4f5
+
+rofi.bw: 0
+rofi.columns: 1
+rofi.eh: 1
+!rofi.font: System San Francisco Display 20
+rofi.lines: 3
+rofi.separator-style: none

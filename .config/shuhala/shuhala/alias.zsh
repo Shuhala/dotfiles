@@ -45,4 +45,5 @@ alias cs-tmux='less ~/.cheatsheets/tmux'
 alias KILLDERBY='rm -f ~/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.ja*'
 alias nspire='wine start "C:\Program Files (x86)\TI Education\TI-Nspire CX CAS Student Software\TI-Nspire CX CAS Student Software.exe"'
 alias purge-wine='sudo pacman -Rns wine wine-mono wine_gecko && rm -r "$HOME/.wine" && rm  $HOME/.config/menus/applications-merged/wine* && rm -r "$HOME/.local/share/applications/wine" && rm $HOME/.local/share/desktop-directories/wine*'
+alias record_screen='ffmpeg -f x11grab -r 25 -s 1600x900 -i :0.0 -vcodec libx264 ~/Videos/video.mkv'
 

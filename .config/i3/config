@@ -1,8 +1,7 @@
-###########################
-# Autostarts
-###########################
-exec_always compton -fG
-# exec --no-startup-id ~/.config/compton.conf
+## Autostarts
+#
+# exec_always compton -fG
+exec --no-startup-id ~/.config/compton.conf
 exec --no-startup-id xrdb ~/.Xresources
 # increase cursor rate
 exec --no-startup-id xset r rate 200 100
@@ -16,9 +15,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id "setxkbmap -layout us,ca -option grp:alt_shift_toggle"
 
 
-###########################
 # General settings     
-###########################
+#
 # Gaps
 gaps inner 10
 gaps outer 0
@@ -27,12 +25,15 @@ smart_gaps on
 for_window [class="URxvt"] border pixel 0
 
 
-###########################
-## Pywal
-###########################
+## Colors (with pywal)
+#
 # Set colors from Xresources
 set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $bg i3wm.color8 #000000
+set_from_resource $color1 i3wm.color1 #f0f0f0
+set_from_resource $color2 i3wm.color2 #f0f0f0
+set_from_resource $color3 i3wm.color5 #f0f0f0
+set_from_resource $color4 i3wm.color6 #f0f0f0
 
 # class                 border  backgr. text indicator child_border
 client.focused          $bg     $bg     $fg  $bg       $bg
@@ -43,32 +44,36 @@ client.placeholder      $bg     $bg     $fg  $bg       $bg
 client.background       $bg
 
 
-###########################
-# i3block
-###########################
+## i3block
+#
 bar
 {
 	status_command i3blocks
 	position top
-	font pango:DejaVu Sans Mono, Awesome 8
+	font pango: Roboto, Awesome 10
 	colors {
-    	statusline         $white
+		background $color1
+		statusline $fg
+		focused_workspace $bg $color4 $bg
+		active_workspace $color3 $color3 $fg
+		inactive_workspace $color3 $color3 $fg
+		urgent_workspace #d33682 #d33682 #fdf6e3
 	}
 }
 
 
-###########################
 ## Screenshots
-###########################
-# scrot
+#
+# Desktop screenshot
 bindsym --release Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -m -e 'xclip -selection c -t image/png < $f'"
+# Selection screenshot
 bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png -s -e 'xclip -selection c -t image/png < $f'"
+# Active window screenshot
 bindsym --release $mod+Shift+Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png -u -e 'xclip -selection c -t image/png < $f'"
 
 
-###########################
 ## Focus
-###########################
+#
 # Kill focused window
 bindsym $mod+Shift+q kill
 # change focus
@@ -88,9 +93,8 @@ bindsym $mod+Alt+l focus output right
 bindsym $mod+Alt+Right focus output right
 
 
-###########################
 ## Window mode
-###########################
+#
 # split in horizontal orientation
 bindsym $mod+h split h
 # split in vertical orientation
@@ -107,9 +111,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 
-###########################
-## Workspaces            ##
-###########################
+## Workspaces
+#
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -134,9 +137,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 
-###########################
 ## Resize 
-###########################
+#
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym Left resize shrink width 10 px or 5 ppt
@@ -151,9 +153,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-###########################
-# Keybindings
-###########################
+## Keybindings
+#
 # Windows button
 set $mod Mod4
 # Terminal
@@ -178,9 +179,8 @@ bindsym $mod+m exec xrandr --output DP2 --auto --left-of eDP1
 bindsym $mod+Shift+m exec xrandr --output DP2 --off
 
 
-###########################
 ## Audio
-###########################
+#
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks

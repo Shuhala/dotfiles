@@ -160,4 +160,5 @@ if [[ $SUBSCRIBE == 1 ]] ; then
         print_block
     done < <(pactl subscribe | stdbuf -oL grep change)
 fi
+o
 

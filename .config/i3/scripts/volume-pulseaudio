@@ -14,7 +14,7 @@ AUDIO_MUTED_SYMBOL='  '
 AUDIO_INTERVAL=5
 
 DEFAULT_COLOR="#ffffff"
-MUTED_COLOR="#a0a0a0"
+MUTED_COLOR="#c6c6cc"
 
 LONG_FORMAT=0
 SHORT_FORMAT=2
@@ -160,5 +160,4 @@ if [[ $SUBSCRIBE == 1 ]] ; then
         print_block
     done < <(pactl subscribe | stdbuf -oL grep change)
 fi
-o
 

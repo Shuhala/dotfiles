@@ -1,24 +1,22 @@
 ## Autostarts
 #
-# exec_always compton -fG
-exec --no-startup-id ~/.config/compton.conf
+exec --no-startup-id compton --config ~/.config/compton.conf
+#exec --no-startup-id compton --config ~/.config/compton.conf -fGb
 exec --no-startup-id xrdb ~/.Xresources
 # increase cursor rate
 exec --no-startup-id xset r rate 200 100
-# pywal colorscheme persist on reboot
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 # start polkit (for pamac)
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-# launch polybar
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# Switch locale
+# Toggle locale
 exec --no-startup-id "setxkbmap -layout us,ca -option grp:alt_shift_toggle"
+# pywal colorscheme persist on reboot
+exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")"
 
 
 # General settings     
 #
 # Gaps
-gaps inner 10
+gaps inner 8
 gaps outer 0
 smart_gaps on
 

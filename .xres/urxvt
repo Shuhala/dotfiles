@@ -4,4 +4,4 @@ URxvt.cursorUnderline: 	true
 URxvt.internalBorder: 	20
 urxvt.font:				xft: Overpass Mono:pixelsize=13
 URxvt.transparent:   	true
-URxvt.shading:       	20
+URxvt.shading:       	15

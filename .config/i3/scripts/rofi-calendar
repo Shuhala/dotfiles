@@ -17,6 +17,7 @@ cal --color=always \
         -hide-scrollbar \
         -bw 2 \
         -m -3 \
+		-lines 6 \
         -theme-str '#window {anchor:northeast; location: northwest;}' \
         -eh 2 \
         -width -22 \

@@ -6,6 +6,9 @@ alias sc='xset r rate 200 100'
 alias h='history'
 alias j='jobs -l'
 alias claim_dir='sudo chown -R $USER ./'
+alias lock='sh $HOME/.config/betteri3lock.sh -l blur'
+alias enable_lang_toggle='setxkbmap -layout us,ca -option grp:alt_shift_toggle'
+alias cheminot='xhost +local:docker && docker run -ti --rm -e DISPLAY=:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix becojo/cheminot'
 
 # Configs
 alias aedit='vim ~/.config/$USER/alias.zsh'

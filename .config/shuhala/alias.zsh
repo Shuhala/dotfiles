@@ -22,10 +22,9 @@ alias tls='tmux ls'
 alias tkill='tmux kill-session -t'
 
 # Docker
-alias docker-clean='sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
-alias docker-purge='docker-purge_images && docker-purge_volumes'
-alias docker-purge_images='sudo docker rmi $(docker images -f dangling=true -q)'
-alias docker-purge_volumes='sudo docker volume rm $(docker volume ls -f dangling=true -q)'
+alias docker-clean='sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker-clean_images && docker-clean_volumes'
+alias docker-clean_images='sudo docker rmi $(docker images -f dangling=true -q) || true && docker rmi $(docker image list -q) || true'
+alias docker-clean_volumes='sudo docker volume rm $(docker volume ls -f dangling=true -q) || true'
 
 # System
 alias reboot='sudo /sbin/reboot'

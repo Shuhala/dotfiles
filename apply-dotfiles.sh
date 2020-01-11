@@ -26,7 +26,6 @@ function applyConfigRoot {
 applyConfig .Xresources $HOME
 applyConfig .bashrc $HOME
 applyConfig .config/$USER $HOME/.config/$USER
-applyConfig .config/betteri3lock.sh $HOME/.config/betteri3lock
 applyConfig .config/compton.conf $HOME/.config/compton
 applyConfig .config/i3 $HOME/.config/i3
 applyConfig .config/ranger $HOME/.config/ranger

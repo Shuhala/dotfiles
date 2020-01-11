@@ -42,3 +42,5 @@ alias KILLDERBY='rm -f ~/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-1
 alias nspire='wine start "C:\Program Files (x86)\TI Education\TI-Nspire CX CAS Student Software\TI-Nspire CX CAS Student Software.exe"'
 alias purge-wine='sudo pacman -Rns wine wine-mono wine_gecko && rm -r "$HOME/.wine" && rm  $HOME/.config/menus/applications-merged/wine* && rm -r "$HOME/.local/share/applications/wine" && rm $HOME/.local/share/desktop-directories/wine*'
 
+# update betterlockscreen image with current feh wallpaper
+alias update_lockscreen="betterlockscreen -u $(grep -o "'.*'" ~/.fehbg | tr -d "'")"

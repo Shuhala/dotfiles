@@ -163,7 +163,7 @@ bindsym $mod+d exec rofi -show run
 # rofi mode window
 bindsym $mod+Tab exec rofi -show window
 # i3lock
-bindsym $mod+l exec "killall compton && sh $HOME/.config/betteri3lock.sh -l blur && compton -fG"
+bindsym $mod+l exec betterlockscreen -l blur
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # reload the configuration file

@@ -5,7 +5,10 @@ function applyConfig {
   read -p "Copy $1? (y/N)" -n 1 yn
   echo ""
   case $yn in
-    [Yy]* ) cp -r $1 $2 ;;
+    [Yy]* )
+      cp -r $2 $2.bk
+      cp -r $1 $2
+      ;;
     * ) ;;
   esac
 }

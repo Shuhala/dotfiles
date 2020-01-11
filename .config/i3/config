@@ -61,6 +61,7 @@ bar
 
 
 ## Screenshots
+# Note: output directory must exists
 #
 # Desktop screenshot
 bindsym --release Print exec "scrot ~/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png -m -e 'xclip -selection c -t image/png < $f'"

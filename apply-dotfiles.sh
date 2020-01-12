@@ -6,7 +6,6 @@ function applyConfig {
   echo ""
   case $yn in
     [Yy]* )
-      cp -r $2 $2.bk
       cp -r $1 $2
       ;;
     * ) ;;

@@ -7,6 +7,11 @@ alias h='history'
 alias j='jobs -l'
 alias claim_dir='sudo chown -R $USER ./'
 
+# lol
+alias fix_internet='sudo modprobe -r tg3 && sudo modprobe broadcom && sudo modprobe tg3'
+# https://wiki.archlinux.org/index.php/Bluetooth
+alias fix_bluetooth='sudo modprobe btusb && sudo systemctl restart bluetooth.service'
+
 # Configs
 alias aedit='vim ~/.config/$USER/alias.zsh'
 alias i3edit='vim ~/.config/i3/config'

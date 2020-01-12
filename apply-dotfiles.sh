@@ -34,4 +34,6 @@ applyConfig .vimrc $HOME
 applyConfig .xinitrc $HOME
 applyConfig .xres $HOME
 applyConfig .zshrc $HOME
+# https://wiki.archlinux.org/index.php/Libinput#Button_re-mapping
+applyConfigRoot ./etc/X11/xorg.conf.d/40-touchpad.conf /etc/X11/xorg.conf.d/40-touchpad.conf
 applyConfigRoot ./var/lib/connman /var/lib/connman

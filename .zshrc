@@ -11,8 +11,8 @@ source $CONFIG/zsh/settings.zsh
 
 export EDITOR='vim'
 
-# swap caps/escape
-setxkbmap -option caps:swapescape
+## swap caps/escape
+# setxkbmap -option caps:swapescape
 
-# Oh my zsh! settings
+## Oh my zsh! settings
 ZSH_TMUX_AUTOSTART=true

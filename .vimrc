@@ -1,19 +1,21 @@
 "NeoBundle Scripts-----------------------------
+if 0 | endif
+
 if &compatible
   set nocompatible               " Be iMproved
 endif
-"
-"  " Required:
-set runtimepath+=/home/shuhala/.vim/bundle/neobundle.vim/
-"
-"  " Required:
-call neobundle#begin(expand('/home/shuhala/.vim/bundle'))
-"
-"  " Let NeoBundle manage NeoBundle
-"  " Required:
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-"
-"  " Add or remove your Bundles here:
+
+" Add or remove your Bundles here:
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'davidhalter/jedi-vim'
@@ -53,6 +55,4 @@ set go+=a               " Visual selection automatically copied to the clipboard
 
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-
-
 

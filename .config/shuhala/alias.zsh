@@ -7,11 +7,6 @@ alias h='history'
 alias j='jobs -l'
 alias claim_dir='sudo chown -R $USER ./'
 
-# lol
-alias fix_internet='sudo modprobe -r tg3 && sudo modprobe broadcom && sudo modprobe tg3'
-# https://wiki.archlinux.org/index.php/Bluetooth
-alias fix_bluetooth='sudo modprobe btusb && sudo systemctl restart bluetooth.service'
-
 # Configs
 alias aedit='vim ~/.config/$USER/alias.zsh'
 alias i3edit='vim ~/.config/i3/config'
@@ -35,17 +30,16 @@ alias docker-clean_volumes='sudo docker volume rm $(docker volume ls -f dangling
 alias reboot='sudo /sbin/reboot'
 alias shutdown='sudo /sbin/shutdown'
 
-# Cheatsheets
-alias cs-apt='cat ~/.cheatsheets/apt'
-alias cs-neobundle='cat ~/.cheatsheets/neobundle'
-alias cs-git='cat ~/.cheatsheets/git'
-alias cs-git_varia='cat ~/.cheatsheets/git-varia'
-alias cs-tmux='less ~/.cheatsheets/tmux'
-
 # Varia
-alias KILLDERBY='rm -f ~/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.ja*'
-alias nspire='wine start "C:\Program Files (x86)\TI Education\TI-Nspire CX CAS Student Software\TI-Nspire CX CAS Student Software.exe"'
-alias purge-wine='sudo pacman -Rns wine wine-mono wine_gecko && rm -r "$HOME/.wine" && rm  $HOME/.config/menus/applications-merged/wine* && rm -r "$HOME/.local/share/applications/wine" && rm $HOME/.local/share/desktop-directories/wine*'
+#alias KILLDERBY='rm -f ~/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.ja*'
+#alias nspire='wine start "C:\Program Files (x86)\TI Education\TI-Nspire CX CAS Student Software\TI-Nspire CX CAS Student Software.exe"'
+#alias purge-wine='sudo pacman -Rns wine wine-mono wine_gecko && rm -r "$HOME/.wine" && rm  $HOME/.config/menus/applications-merged/wine* && rm -r "$HOME/.local/share/applications/wine" && rm $HOME/.local/share/desktop-directories/wine*'
 
 # update betterlockscreen image with current feh wallpaper
-alias update_lockscreen="betterlockscreen -u $(grep -o "'.*'" ~/.fehbg | tr -d "'")"
+#alias update_lockscreen="betterlockscreen -u $(grep -o "'.*'" ~/.fehbg | tr -d "'")"
+
+# lol
+alias fix_internet='sudo modprobe -r tg3 && sudo modprobe broadcom && sudo modprobe tg3'
+# https://wiki.archlinux.org/index.php/Bluetooth
+alias fix_bluetooth='sudo modprobe btusb && sudo systemctl restart bluetooth.service'
+

@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh 			# Path to your oh-my-zsh installation.
-export CONFIG=$HOME/.config/$USER
+export CONFIG=$HOME/.config/shuhala
 
 ZSH_THEME="clean"
 DEFAULT_USER=$USER 							# Hide user from command prompt

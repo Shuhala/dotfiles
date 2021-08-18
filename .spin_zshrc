@@ -1,0 +1,21 @@
+source /etc/zsh/zshrc.default.inc.zsh
+
+alias zedit='vim ~/.zshrc'
+alias zupdate='source ~/.zshrc'
+
+alias ll="ls -lhA"
+alias c="clear"
+
+#SPIN_SERVICE() {"shopify--$(basename $SPIN_REPO_SOURCE_PATH)";}
+alias spin-log-env='journalctl -u spin-environment@shopify--$(basename $SPIN_REPO_SOURCE_PATH).service'
+alias spin-log-server='journalctl -u proc-shopify--$(basename $SPIN_REPO_SOURCE_PATH)@server.service'
+alias spin-log-nginx='journalctl -u nginx-config@shopify--$(basename $SPIN_REPO_SOURCE_PATH).service'
+alias spin-log-openresty="journalctl -u openresty.service"
+
+alias spin-reload-shadowenv="/opt/spin/bin/envfile-to-shadowenv .spin/env > .shadowenv.d/600-spin-envfile.lisp"
+
+alias spin-restart-env='systemctl restart spin-environment@shopify--$(basename $SPIN_REPO_SOURCE_PATH).service'
+alias spin-restart-server='systemctl restart proc-shopify--$(basename $SPIN_REPO_SOURCE_PATH)@server'
+alias spin-restart-nginx='systemctl restart nginx-config@shopify--$(basename $SPIN_REPO_SOURCE_PATH).service'
+
+alias spin-list-failed="systemctl list-units --failed"

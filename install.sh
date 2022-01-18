@@ -1,1 +1,1 @@
-ln -sf ~/dotfiles/.spin_zshrc ~/.zshrc
+ln -sf ~/dotfiles/spin/.zshrc ~/.zshrc
